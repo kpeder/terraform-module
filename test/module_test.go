@@ -47,15 +47,12 @@ func TestExample1(t *testing.T) {
 	terraform.InitAndApply(t, terraformOptions)
 
 	outputValue := terraform.Output(t, terraformOptions, "random_pet")
+
 	assert.NotNil(t, outputValue)
 	if inputs["prefix"] != nil {
-		t.Log("here")
 		assert.Contains(t, outputValue, inputs["prefix"].(string))
 		assert.Equal(t, strings.Count(outputValue, "-"), inputs["length"].(int))
-		t.Log("here")
 	} else {
-		t.Log("there")
 		assert.Equal(t, strings.Count(outputValue, "-"), inputs["length"].(int)-1)
-		t.Log("there")
 	}
 }
