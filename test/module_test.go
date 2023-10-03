@@ -69,7 +69,7 @@ func TestExample1(t *testing.T) {
 		}
 	} else {
 		// Prefix is random
-		if assert.Greater(len(strings.Split(outputValue, "-")), 0) {
+		if assert.Greater(t, len(strings.Split(outputValue, "-")), 0) {
 			t.Logf("Prefix test PASSED. Expected random prefix, got %s", strings.Split(outputValue, "-")[0])
 		} else {
 			t.Error("Prefix test FAILED. Expected random prefix, got empty string")
