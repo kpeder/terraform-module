@@ -11,7 +11,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_example1"></a> [example1](#module\_example1) | ../../. | n/a |
+| <a name="module_random_pet"></a> [random\_pet](#module\_random\_pet) | ../../. | n/a |
 
 ## Resources
 
