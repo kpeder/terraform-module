@@ -16,7 +16,7 @@ locals {
   inputs = yamldecode(file("./inputs.yaml"))
 }
 
-module "example1" {
+module "random_pet" {
   source = "../../."
 
   length = coalesce(local.inputs.length, var.length)
