@@ -62,19 +62,23 @@ func TestExample1(t *testing.T) {
 			t.Errorf("Prefix test FAILED. Expected output to contain %s, got %s", inputs["prefix"].(string), outputValue)
 		}
 		// Test for word count
-		if assert.Equal(t, strings.Count(outputValue, "-"), inputs["length"].(int)) {
-			t.Logf("Word count test PASSED. Expected output to contain %d words, got %d", inputs["length"].(int), strings.Count(outputValue, "-"))
+		if assert.Equal(t, len(strings.Split(outputValue, "-")), inputs["length"].(int)+1) {
+			t.Logf("Word count test PASSED. Expected output to contain prefix plus %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
 		} else {
-			t.Errorf("Word count test FAILED. Expected output to contain %d words, got %d", inputs["length"].(int), strings.Count(outputValue, "-"))
+			t.Errorf("Word count test FAILED. Expected output to contain prefix plus %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
 		}
 	} else {
 		// Prefix is random
-		t.Logf("Expected random prefix, got %s", strings.Split(outputValue, "-")[0])
-		// Test for word count
-		if assert.Equal(t, strings.Count(outputValue, "-"), inputs["length"].(int)-1) {
-			t.Logf("Word count test PASSED. Expected output to contain %d words, got %d", inputs["length"].(int)-1, strings.Count(outputValue, "-"))
+		if assert.Greater(len(strings.Split(outputValue, "-")), 0) {
+			t.Logf("Prefix test PASSED. Expected random prefix, got %s", strings.Split(outputValue, "-")[0])
 		} else {
-			t.Errorf("Word count test FAILED. Expected output to contain %d words, got %d", inputs["length"].(int)-1, strings.Count(outputValue, "-"))
+			t.Error("Prefix test FAILED. Expected random prefix, got empty string")
+		}
+		// Test for word count
+		if assert.Equal(t, len(strings.Split(outputValue, "-")), inputs["length"].(int)) {
+			t.Logf("Word count test PASSED. Expected output to contain %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
+		} else {
+			t.Errorf("Word count test FAILED. Expected output to contain %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
 		}
 	}
 }
