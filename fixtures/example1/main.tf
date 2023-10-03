@@ -24,5 +24,5 @@ module "random_pet" {
 }
 
 output "random_pet" {
-  value = module.example1.random_pet
+  value = module.random_pet.random_pet
 }
