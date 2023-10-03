@@ -10,6 +10,7 @@ help:
 	@echo '    build   Build the Terraform module'
 	@echo '    clean   Clean up build files'
 	@echo '    init    Initialize Terraform module'
+	@echo '    lint    Run the golangci-lint utility'
 	@echo '    test    Run the Terraform module tests'
 	@echo ''
 
@@ -22,7 +23,10 @@ clean:
 
 init: clean
 	@cd fixtures/example1 && terraform init
-	@cd test && go mod init module_test.go; go mod tidy; golangci-lint run --print-linter-name --verbose module_test.go
+	@cd test && go mod init module_test.go; go mod tidy
+
+lint: clean init
+	@cd test && golangci-lint run --print-linter-name --verbose module_test.go
 
 test: clean init
 	@cd test && go test -v -destroy
