@@ -56,24 +56,18 @@ func TestExample1(t *testing.T) {
 	}
 	if inputs["prefix"] != nil {
 		// Test for prefix
-		if assert.Contains(t, outputValue, inputs["prefix"].(string)) {
-			t.Logf("Prefix test PASSED. Expected output to contain %s, got %s", inputs["prefix"].(string), outputValue)
+		if assert.Equal(t, strings.Split(outputValue, "-")[0], inputs["prefix"].(string)) {
+			t.Logf("Prefix test PASSED. Expected output to start with %s, got %s", inputs["prefix"].(string), strings.Split(outputValue, "-")[0])
 		} else {
-			t.Errorf("Prefix test FAILED. Expected output to contain %s, got %s", inputs["prefix"].(string), outputValue)
+			t.Errorf("Prefix test FAILED. Expected output to start with %s, got %s", inputs["prefix"].(string), strings.Split(outputValue, "-")[0])
 		}
 		// Test for word count
 		if assert.Equal(t, len(strings.Split(outputValue, "-")), inputs["length"].(int)+1) {
-			t.Logf("Word count test PASSED. Expected output to contain prefix plus %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
+			t.Logf("Word count test PASSED. Expected output to contain prefix plus %d more words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
 		} else {
-			t.Errorf("Word count test FAILED. Expected output to contain prefix plus %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
+			t.Errorf("Word count test FAILED. Expected output to contain prefix plus %d more words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
 		}
 	} else {
-		// Prefix is random
-		if assert.Greater(t, len(strings.Split(outputValue, "-")), 0) {
-			t.Logf("Prefix test PASSED. Expected random prefix, got %s", strings.Split(outputValue, "-")[0])
-		} else {
-			t.Error("Prefix test FAILED. Expected random prefix, got empty string")
-		}
 		// Test for word count
 		if assert.Equal(t, len(strings.Split(outputValue, "-")), inputs["length"].(int)) {
 			t.Logf("Word count test PASSED. Expected output to contain %d words, got %d", inputs["length"].(int), len(strings.Split(outputValue, "-")))
