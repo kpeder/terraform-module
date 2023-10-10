@@ -1,6 +1,12 @@
 ## Terraform Module with Terratest
 An example Terraform module that includes Go tests using the Terratest library
 
+### Decision Records
+This repository uses architecture decision records to record design decisions
+about important elements of the solution.
+
+The ADR index is available [here](./docs/decisions/index.md).
+
 ### Requirements
 Tested on Go version 1.21 with external modules:
 ```
