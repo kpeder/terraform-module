@@ -1,4 +1,5 @@
 ---
 golang_runtime_version: "1.21"
-random_provider_version: "3.5.1"
-terraform_binary_version: "1.5.7"
+random_provider_version: "3.5"
+terraform_binary_version: "1.5"
+terraform_install_version: "1.5.7"

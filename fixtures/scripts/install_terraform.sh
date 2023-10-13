@@ -26,7 +26,7 @@ readonly OS_IDENTIFIER
 # Determine the version of terraform to install
 readonly VERSIONS_FILE="${SCRIPT_DIR}/../versions.yaml"
 >&2 echo "Reading $VERSIONS_FILE"
-readonly TERRAFORM_VERSION="$(cat $VERSIONS_FILE | grep '^terraform_binary_version: ' | awk -F':' '{gsub(/^[[:space:]]*["]*|["]*[[:space:]]*$/,"",$2); print $2}')"
+readonly TERRAFORM_VERSION="$(cat $VERSIONS_FILE | grep '^terraform_install_version: ' | awk -F':' '{gsub(/^[[:space:]]*["]*|["]*[[:space:]]*$/,"",$2); print $2}')"
 if [[ -z "$TERRAFORM_VERSION" ]]; then
 	>&2 echo 'Unable to find version number'
 	exit 1
