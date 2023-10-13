@@ -2,9 +2,9 @@ name: 'Terraform Build and Test'
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ 'main' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ 'main' ]
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: "~> 1.5"
+        terraform_version: '1.5.7'
         terraform_wrapper: false
 
     - name: Test Project
