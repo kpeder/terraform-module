@@ -31,6 +31,30 @@ terraform
 terraform-docs
 ```
 
+Terraform can be automatically installed via script:
+```
+user@host:~/Projects/terraform-module$ cd fixtures/scripts
+user@host:~/Projects/terraform-module/fixtures/scripts$ chmod +x install_terraform.sh && sudo ./install_terraform.sh
+Detected OS Identifier: linux
+Reading ./../versions.yaml
+--2023-10-13 14:43:37--  https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip
+Resolving releases.hashicorp.com (releases.hashicorp.com)... 108.139.47.112, 108.139.47.90, 108.139.47.78, ...
+Connecting to releases.hashicorp.com (releases.hashicorp.com)|108.139.47.112|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 21019880 (20M) [application/zip]
+Saving to: ‘terraform.zip’
+
+terraform.zip                                     100%[===========================================================================================================>]  20.05M  13.9MB/s    in 1.4s    
+
+2023-10-13 14:43:38 (13.9 MB/s) - ‘terraform.zip’ saved [21019880/21019880]
+
+Archive:  terraform.zip
+  inflating: /usr/local/bin/terraform
+user@host:~/Projects/terraform-module/fixtures/scripts$ terraform version
+Terraform v1.5.7
+on linux_amd64
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
