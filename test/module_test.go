@@ -71,17 +71,21 @@ func TestExample1(t *testing.T) {
 	// Initialize the deployment
 	terraform.Init(t, terraformOptions)
 
-	// Read the version command output and verify configured versions
+	// Read the version command output
 	version := terraform.RunTerraformCommand(t, terraformOptions, terraform.FormatArgs(terraformOptions, "version")...)
+
+	// Verify configured Terraform version
 	if assert.Contains(t, version, "Terraform v"+versions["terraform_binary_version"].(string)) {
 		t.Logf("Terraform version check PASSED, expected version '~> %s', got \n%s", versions["terraform_binary_version"].(string), version)
 	} else {
-		t.Errorf("Terraform version check FAILED, expected version ~> '%s', got \n%s", versions["terraform_binary_version"].(string), version)
+		t.Errorf("Terraform version check FAILED, expected version '~> %s', got \n%s", versions["terraform_binary_version"].(string), version)
 	}
+
+	// Verify configured provider version
 	if assert.Contains(t, version, "provider registry.terraform.io/hashicorp/random v"+versions["random_provider_version"].(string)) {
-		t.Logf("Provider version check PASSED, expected hashicorp/random version '%s', got \n%s", versions["random_provider_version"].(string), version)
+		t.Logf("Provider version check PASSED, expected hashicorp/random version '~> %s', got \n%s", versions["random_provider_version"].(string), version)
 	} else {
-		t.Errorf("Provider version check FAILED, expected hashicorp/random version '%s', got \n%s", versions["random_provider_version"].(string), version)
+		t.Errorf("Provider version check FAILED, expected hashicorp/random version '~> %s', got \n%s", versions["random_provider_version"].(string), version)
 	}
 
 	// Defer Terraform destroy only if flag is set
