@@ -12,6 +12,8 @@ Tested on Go version 1.21 with external modules:
 ```
 "flag"
 "os"
+"runtime"
+"strings"
 "testing"
 
 "gopkg.in/yaml.v3"
