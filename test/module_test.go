@@ -23,12 +23,12 @@ func TestExample1(t *testing.T) {
 	}
 
 	// Check for versions file
-	if !assert.FileExists(t, terraformOptions.TerraformDir+"/versions.yaml") {
+	if !assert.FileExists(t, terraformOptions.TerraformDir+"/../versions.yaml") {
 		t.Fail()
 	}
 
 	// Read and store the versions.yaml
-	yfile, err := os.ReadFile(terraformOptions.TerraformDir + "/versions.yaml")
+	yfile, err := os.ReadFile(terraformOptions.TerraformDir + "/../versions.yaml")
 	if err != nil {
 		t.Fail()
 	}
