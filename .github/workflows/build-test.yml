@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  TERRAFORM_VERSION: "$(cat $VERSIONS_FILE | grep '^terraform_install_version: ' | awk -F':' '{gsub(/^[[:space:]]*["]*|["]*[[:space:]]*$/,"",$2); print $2}')"
+
 jobs:
 
   test:
@@ -22,7 +25,7 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: "~> 1.5"
+        terraform_version: $TERRAFORM_VERSION
         terraform_wrapper: false
 
     - name: Test Project
