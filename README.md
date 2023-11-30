@@ -44,7 +44,7 @@ HTTP request sent, awaiting response... 200 OK
 Length: 21019880 (20M) [application/zip]
 Saving to: ‘terraform.zip’
 
-terraform.zip                                     100%[===========================================================================================================>]  20.05M  13.9MB/s    in 1.4s    
+terraform.zip                                     100%[===========================================================================================================>]  20.05M  13.9MB/s    in 1.4s
 
 2023-10-13 14:43:38 (13.9 MB/s) - ‘terraform.zip’ saved [21019880/21019880]
 
@@ -61,13 +61,13 @@ on linux_amd64
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.5.1 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.5 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_random"></a> [random](#provider\_random) | 3.5.1 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.5 |
 
 ## Modules
 
@@ -77,7 +77,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [random_pet.main](https://registry.terraform.io/providers/hashicorp/random/3.5.1/docs/resources/pet) | resource |
+| [random_pet.main](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet) | resource |
 
 ## Inputs
 
