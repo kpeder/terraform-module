@@ -28,8 +28,9 @@ jobs:
     - name: Check documentation
       uses: terraform-docs/gh-actions@v1.0.0
       with:
+        fail-on-diff: true
         output-method: print
-        working-dir: .
+        working-dir: .,fixtures/example1
 
     - name: Test Project
       run: make test
