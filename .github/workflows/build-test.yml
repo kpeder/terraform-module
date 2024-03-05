@@ -25,11 +25,14 @@ jobs:
         terraform_version: '1.5.7'
         terraform_wrapper: false
 
+    - name: Set output method for document check
+      run: |
+        echo "output-method=print" >> $GITHUB_OUTPUT
+
     - name: Check documentation
       uses: terraform-docs/gh-actions@v1.0.0
       with:
         fail-on-diff: true
-        output-method: print
         working-dir: .,fixtures/example1
 
     - name: Test Project
