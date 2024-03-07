@@ -19,6 +19,7 @@ build: clean init
 	@cd fixtures/example1 && terraform apply --auto-approve
 
 clean:
+	@rm -rf .terraform .terraform.lock.hcl
 	@cd fixtures/example1 && rm -rf .terraform *.tfstate* .terraform.lock.hcl
 	@cd test && rm -f go.mod go.sum
 
