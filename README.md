@@ -61,13 +61,13 @@ on linux_amd64
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.5 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.5.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.5 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.5.0 |
 
 ## Modules
 
